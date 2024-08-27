@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-	
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
@@ -11,42 +10,42 @@
 <body>
    <section>
         <div class="box">
-
             <div class="form">
                 <img src="images/profile.jpg" class="user" alt="">
                 <h2>Login to your Account</h2>
-                <form class="" action="../14/news_artical.html" method="post" enctype="multipart/form-data">
-            
+                <form id="loginForm">
                     <div class="inputBx">
                         <input type="text" name="username" placeholder="Username" id="username" oninput="validation()" required autofocus>
                         <img src="images/user.png" alt="">
                     </div>
                     <div class="inputBx">
-                        <input type="password" name="passward" id="password" placeholder="Passward" oninput="validation()" required>
+                        <input type="password" name="password" id="password" placeholder="Password" oninput="validation()" required>
                         <img src="images/lock.png" alt="">
                     </div>
-                    <label class="remeber"><input type="checkbox"> Remember Me</label>
-                    <div class="inputBx" > 
-                        <input  type="submit" name="submit" value="Login" id="submit" src="../14/news_artical.html" disabled>
+                    <label class="remember"><input type="checkbox"> Remember Me</label>
+                    <div class="inputBx"> 
+                        <input type="submit" name="submit" value="Login" id="submit" disabled>
                     </div>
                 </form>
-                <div><span style="float: left;"><a href="#">Forgot Passward </a></span>
-                <span style="float:right;"><a href="#">New user? Sign-in</a></span></div>
-
+                <div>
+                    <span style="float: left;"><a href="#">Forgot Password</a></span>
+                    <span style="float:right;"><a href="#">New user? Sign-in</a></span>
+                </div>
             </div>
-
         </div>
     </section>
+
     <script type="text/javascript">
     	function validation() {
 		    let username = document.getElementById("username").value;
 		    let pass = document.getElementById("password").value;
-		    if (username != "" && pass != "") {
-		        document.getElementById("submit").disabled = false;
-		    } else {
-		        document.getElementById("submit").disabled = true;
-		    }
+		    document.getElementById("submit").disabled = !(username && pass);
 		}
+
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevents form submission
+            window.location.href = "../14/news_artical.html"; // Adjust path as per your folder structure
+        });
     </script>
-   </body>
+</body>
 </html>
